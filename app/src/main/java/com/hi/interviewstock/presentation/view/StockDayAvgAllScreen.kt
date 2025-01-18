@@ -9,11 +9,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.hi.interviewstock.presentation.viewmodel.BwlbbuAllViewModel
+import com.hi.interviewstock.presentation.viewmodel.StockDayAvgAllViewModel
 
 
 @Composable
-fun BwlbbuAllScreen(viewModel: BwlbbuAllViewModel = hiltViewModel()) {
+fun StockDayAvgAllcreen(viewModel: StockDayAvgAllViewModel = hiltViewModel()) {
     val items = viewModel.reservoirInfoList.collectAsState(initial = emptyList())
 
     LazyColumn(modifier = Modifier.fillMaxSize().padding(16.dp)) {
@@ -22,7 +22,7 @@ fun BwlbbuAllScreen(viewModel: BwlbbuAllViewModel = hiltViewModel()) {
             Column(Modifier.padding(8.dp)) {
                 BasicText("Code: ${item.Code}")
                 BasicText("Name: ${item.Name}")
-                BasicText("Yield Rate: ${item.DividendYield}")
+                BasicText("Yield Rate: ${item.ClosingPrice}")
             }
         }
     }

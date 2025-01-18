@@ -2,8 +2,8 @@ package com.hi.interviewstock.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hi.interviewstock.data.repository.BwlbbuAllRepository
-import com.hi.interviewstock.domain.model.BwlbbuAllInfoItem
+import com.hi.interviewstock.data.repository.StockDayAllRepository
+import com.hi.interviewstock.domain.model.StockDayAllInfoItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -11,12 +11,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class BwlbbuAllViewModel @Inject constructor(
-    private val repository: BwlbbuAllRepository
+class StockDayAllViewModel @Inject constructor(
+    private val repository: StockDayAllRepository
 ) : ViewModel() {
 
-    private val _reservoirInfoList = MutableStateFlow<List<BwlbbuAllInfoItem>>(emptyList())
-    val reservoirInfoList: StateFlow<List<BwlbbuAllInfoItem>> get() = _reservoirInfoList
+    private val _reservoirInfoList = MutableStateFlow<List<StockDayAllInfoItem>>(emptyList())
+    val reservoirInfoList: StateFlow<List<StockDayAllInfoItem>> get() = _reservoirInfoList
 
     fun fetchReservoirInfoList() {
         viewModelScope.launch {
