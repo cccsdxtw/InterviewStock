@@ -2,7 +2,7 @@ package com.hi.interviewstock.di
 
 import com.hi.interviewstock.data.remote.BWIBBUALLRetrofitInstance
 import com.hi.interviewstock.data.remote.BWIBBUALLService
-import com.hi.interviewstock.data.repository.BWIBBUALLRepository
+import com.hi.interviewstock.data.repository.BwibbuAllRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,7 +28,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideBWIBBUALLRepository(service: BWIBBUALLService): BWIBBUALLRepository {
-        return BWIBBUALLRepository(service)
+    fun provideBWIBBUALLRepository(service: BWIBBUALLService): BwibbuAllRepository {
+        return BwibbuAllRepository(service)
     }
 }

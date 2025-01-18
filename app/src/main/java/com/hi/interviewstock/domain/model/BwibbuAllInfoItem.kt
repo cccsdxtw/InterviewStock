@@ -3,7 +3,7 @@ package com.hi.interviewstock.domain.model
 import com.google.gson.annotations.SerializedName
 
 
-data class BWIBBUALLInfoItem(
+data class BwibbuAllInfoItem(
     //股票代號
     @SerializedName("Code")
     val Code: String? = "沒有資料",

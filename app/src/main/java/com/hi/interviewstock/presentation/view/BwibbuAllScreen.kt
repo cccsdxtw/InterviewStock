@@ -9,11 +9,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.hi.interviewstock.presentation.viewmodel.BWIBBUALLViewModel
+import com.hi.interviewstock.presentation.viewmodel.BwibbuAllViewModel
 
 
 @Composable
-fun BWIBBUALLScreen(viewModel: BWIBBUALLViewModel = hiltViewModel()) {
+fun BWIBBUALLScreen(viewModel: BwibbuAllViewModel = hiltViewModel()) {
     val items = viewModel.reservoirInfoList.collectAsState(initial = emptyList())
 
     LazyColumn(modifier = Modifier.fillMaxSize().padding(16.dp)) {
