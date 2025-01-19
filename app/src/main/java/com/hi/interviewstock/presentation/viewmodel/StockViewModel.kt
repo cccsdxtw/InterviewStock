@@ -1,5 +1,6 @@
 package com.hi.interviewstock.presentation.viewmodel
 
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hi.interviewstock.data.repository.BwlbbuAllRepository
@@ -11,6 +12,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import androidx.compose.runtime.State
 
 @HiltViewModel
 class StockViewModel @Inject constructor(
@@ -21,6 +23,9 @@ class StockViewModel @Inject constructor(
 
     private val _allInfoItems = MutableStateFlow<List<ALLInfoItem>>(emptyList())
     val allInfoItems: StateFlow<List<ALLInfoItem>> get() = _allInfoItems
+//    private val _isBottomSheetVisible = mutableStateOf(false)
+    private val _isDropdownMenuExpanded = mutableStateOf(false)
+    val isBottomSheetVisible: State<Boolean> get() = _isDropdownMenuExpanded
 
     fun fetchReservoirInfoList() {
         viewModelScope.launch {
@@ -86,4 +91,17 @@ class StockViewModel @Inject constructor(
             // 根據 code 排序結果，並返回合併後的資料列表
             .sortedBy { it.code }
     }
+
+//    fun toggleBottomSheet() {
+//        _isBottomSheetVisible.value = !_isBottomSheetVisible.value
+//    }
+
+    fun openDropdownMenu() {
+        _isDropdownMenuExpanded.value = true
+    }
+
+    fun closeDropdownMenu() {
+        _isDropdownMenuExpanded.value = false
+    }
+
 }
