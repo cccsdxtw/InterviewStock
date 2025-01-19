@@ -3,7 +3,6 @@
 package com.hi.interviewstock.presentation.view
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
@@ -46,12 +45,12 @@ fun StockScreen(type: String, viewModel: StockViewModel = hiltViewModel()) {
     // 使用 remember 和 mutableStateOf 管理 Stocktype 狀態
     var Stocktype by remember { mutableStateOf(type) }
 
-    // 根據系統主題決定背景顏色
-    val backgroundColor = if (isSystemInDarkTheme()) {
-        Color(0xFF212121)
-    } else {
-        Color(0xFFFFFFFF)
-    }
+//    // 根據系統主題決定背景顏色
+//    val backgroundColor = if (isSystemInDarkTheme()) {
+//        Color(0xFF212121)
+//    } else {
+//        Color(0xFFFFFFFF)
+//    }
 
     // 排序後的列表
     val sortedItems = remember(items.value, Stocktype) {
@@ -68,7 +67,7 @@ fun StockScreen(type: String, viewModel: StockViewModel = hiltViewModel()) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(backgroundColor)
+            .systemBarsPadding()
     ) {
         LazyColumn(
             modifier = Modifier
@@ -353,7 +352,7 @@ fun StockScreen(type: String, viewModel: StockViewModel = hiltViewModel()) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(16.dp),
+                    .padding(16.dp,20.dp,16.dp,16.dp),
                 contentAlignment = Alignment.TopEnd
             ) {
                 val isDarkTheme = isSystemInDarkTheme()
