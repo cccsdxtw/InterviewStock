@@ -60,8 +60,11 @@ fun StockScreen(type: String,viewModel: StockViewModel = hiltViewModel()) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(16.dp,0.dp,16.dp,0.dp)
     ) {
+        item {
+            Spacer(modifier = Modifier.height(50.dp)) // 這裡設置偏移的高度
+        }
         items(sortedItems.size) { index ->
             val sortedItems = sortedItems[index]
             // 當 openDialog 為 true 時顯示一個 Dialog
