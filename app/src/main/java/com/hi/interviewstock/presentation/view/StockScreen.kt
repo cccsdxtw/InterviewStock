@@ -375,13 +375,7 @@ fun StockScreen(type: String, viewModel: StockViewModel = hiltViewModel()) {
                     onClick = { viewModel.openDropdownMenu() },
                     modifier = Modifier
                         .size(56.dp)
-//                        .border(
-//                            width = 2.dp,
-//                            color = if (isDarkTheme) Color(0xFF444444) else Color(0xFFD2D2D2),
-//                            shape = RoundedCornerShape(12.dp)
-//                        )
                     ,
-//                    containerColor = if (isDarkTheme) Color(0xFF333333) else Color(0xFFFFFFFF),
                     contentColor = if (isDarkTheme) Color.White else Color.Black
                 ) {
                     Icon(

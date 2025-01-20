@@ -102,10 +102,6 @@ class StockViewModel @Inject constructor(
             .sortedBy { it.code }
     }
 
-//    fun toggleBottomSheet() {
-//        _isBottomSheetVisible.value = !_isBottomSheetVisible.value
-//    }
-
     fun openDropdownMenu() {
         _isDropdownMenuExpanded.value = true
     }
