@@ -17,10 +17,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContent {
             MyApplicationTheme(dynamicColor = false) {
                 // 根據系統主題決定背景顏色
@@ -29,12 +27,11 @@ class MainActivity : ComponentActivity() {
                 } else {
                     Color(0xFFFFFFFF)
                 }
+
                 Column(modifier = Modifier.fillMaxWidth()) {
                     Box(Modifier .background(backgroundColor).weight(1.0f), contentAlignment = Alignment.Center) {
                         StockScreen("升")
                     }
-
-
                 }
             }
         }

@@ -1,5 +1,6 @@
 package com.hi.interviewstock.presentation.viewmodel
 
+import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -20,12 +21,15 @@ class StockViewModel @Inject constructor(
     private val stockDayAllRepository: StockDayAllRepository,
     private val stockDayAvgAllRepository: StockDayAvgAllRepository
 ) : ViewModel() {
+    val isLoading = mutableStateOf(true)  // 控制是否顯示加載動畫
+    val stockData = mutableStateOf<List<ALLInfoItem>>(emptyList())  // 儲存 API 資料
 
     private val _allInfoItems = MutableStateFlow<List<ALLInfoItem>>(emptyList())
     val allInfoItems: StateFlow<List<ALLInfoItem>> get() = _allInfoItems
 //    private val _isBottomSheetVisible = mutableStateOf(false)
     private val _isDropdownMenuExpanded = mutableStateOf(false)
     val isBottomSheetVisible: State<Boolean> get() = _isDropdownMenuExpanded
+
 
     fun fetchReservoirInfoList() {
         viewModelScope.launch {
@@ -41,11 +45,17 @@ class StockViewModel @Inject constructor(
                     stockDayAllData,
                     stockDayAvgAllData
                 )
-
+                // 更新資料和加載狀態
                 _allInfoItems.value = mergedData
+                stockData.value = mergedData
+                isLoading.value = false
+                Log.e(" isLoading.value:", isLoading.value.toString())
             } catch (e: Exception) {
                 e.printStackTrace()
+                isLoading.value = false
                 _allInfoItems.value = emptyList() // 發生錯誤時回傳空列表
+                Log.e(" isLoading.value:", isLoading.value.toString())
+
             }
         }
     }
