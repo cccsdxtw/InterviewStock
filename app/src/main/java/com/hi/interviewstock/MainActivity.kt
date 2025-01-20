@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
 
                 Column(modifier = Modifier.fillMaxWidth()) {
                     Box(Modifier .background(backgroundColor).weight(1.0f), contentAlignment = Alignment.Center) {
-                        StockScreen("升")
+                        StockScreen("降")
                     }
                 }
             }
